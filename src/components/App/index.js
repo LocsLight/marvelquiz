@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import '../../App.css';
 import Header from '../Header'
 import Landing from '../Landing'
@@ -14,13 +14,13 @@ function App() {
     <div>
     <Router>
       <Header/>
-
-        <Route exact path="/" component={Landing} />
-        <Route path="/welcome" component={Welcome} />
-        <Route path="/login" component={Login} />
-        <Route path="/signup" component={Signup} />
-        <Route component={ErrorPage} />
-
+        <Switch>
+          <Route exact path="/" component={Landing} />
+          <Route path="/welcome" component={Welcome} />
+          <Route path="/login" component={Login} />
+          <Route path="/signup" component={Signup} />
+          <Route component={ErrorPage} />
+        </Switch>
       <Footer/>
     </Router>
     </div>
