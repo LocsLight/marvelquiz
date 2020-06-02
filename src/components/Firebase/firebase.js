@@ -22,7 +22,7 @@ class Firebase {
     this.auth.createUserWithEmailAndPassword(email, password);
 
     // connection
-    liginIser = (email, password) =>
+    loginUser = (email, password) =>
     this.auth.signInWithEmailAndPassword(email, password);
 
     // déconnexion 
