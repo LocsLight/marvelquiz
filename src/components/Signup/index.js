@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FirebaseContext } from '../Firebase';
 
 
-const Signup = () => {
+const Signup = (props) => {
 
     const firebase = useContext(FirebaseContext)
 
@@ -27,7 +27,7 @@ const Signup = () => {
         firebase.signupUser(email, password)
         .then(user => {
             setLoginData({...data})
-            this.props.history.push('/welcome')
+            props.history.push('/welcome')
         })
         .catch(error =>{
             setError(error)
