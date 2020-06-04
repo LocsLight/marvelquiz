@@ -1,5 +1,6 @@
 import app from 'firebase/app';
 import'firebase/auth';
+import'firebase/firestore';
 
 const config = {
     apiKey: "AIzaSyCe51sOw78av0u0U-RRvomJB19vJ043EYI",
@@ -15,6 +16,7 @@ class Firebase {
     constructor() {
         app.initializeApp(config)
         this.auth = app.auth()
+        this.db = app.firestore()
     }
 
     // inscription
@@ -28,6 +30,13 @@ class Firebase {
     // déconnexion 
     signOut = () => 
     this.auth.signOut()
+
+    // Récupérer le mot de passe
+    passwordReset = email => this.auth.sendPasswordResetEmail(email)
+
+    // firestore
+    user = uid => this.db.doc(`user/${uid}`);
+
 }
 
 export default Firebase
