@@ -18,12 +18,12 @@ const Signup = (props) => {
     const [error, setError] = useState('')
 
     const handleChange = e => {
-        setLoginData({...loginData, [e.target.id]: e.target.value})
-
+        setLoginData({...loginData, [e.target.id]: e.target.value});
     }
+
     const handleSubmit = e => {
         e.preventDefault();
-        const { email, password, pseudo  } = loginData;
+        const { email, password, pseudo } = loginData;
         firebase.signupUser(email, password)
         .then( authUser => {
             return firebase.user(authUser.user.uid).set({
@@ -32,12 +32,12 @@ const Signup = (props) => {
             })
         })
         .then(() => {
-            setLoginData({...data})
-            props.history.push('/welcome')
+            setLoginData({...data});
+            props.history.push('/welcome');
         })
         .catch(error => {
-            setError(error)
-            setLoginData({...data})
+            setError(error);
+            setLoginData({...data});
         })
     }
     const {pseudo, email, password, confirmPassword} = loginData
@@ -55,7 +55,9 @@ const Signup = (props) => {
                 </div>
                 <div className="formBoxRight">
                     <div className="formContent">
+
                     {errorMsg}
+
                     <h2>Inscription</h2>
                     <form onSubmit={handleSubmit}>
                         <div className="inputBox">
@@ -74,10 +76,11 @@ const Signup = (props) => {
                             <input onChange={handleChange} value={confirmPassword} type="password" id="confirmPassword" autoComplete="off" required />
                             <label htmlFor="confirmPassword">Confirmer le mot de passe</label>
                         </div>
+                        
                         {btn}
                     </form>
                     <div className="linkContainer">
-                        <Link to="/login" className="simpleLink">Déjà inscrit? Connectez-vous.</Link>
+                        <Link className="simpleLink" to="/login">Déjà inscrit? Connectez-vous.</Link>
                     </div>
                     </div>
                 </div>
