@@ -12,7 +12,7 @@ const Lougout = (props) => {
     useEffect(() => {
         if (checked) {
             // console.log("Déconnexion");
-            firebase.signOut()
+            firebase.signoutUser()
         }
 
     }, [checked, firebase]);
