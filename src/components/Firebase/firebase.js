@@ -19,18 +19,18 @@ class Firebase {
         this.db = app.firestore()
     }
 
-    // inscription
+    // Sign up
     signupUser = (email, password) =>
     this.auth.createUserWithEmailAndPassword(email, password);
 
-    // connection
+    // login
     loginUser = (email, password) =>
     this.auth.signInWithEmailAndPassword(email, password);
 
-    // déconnexion 
+    // logout 
     signoutUser = () => this.auth.signOut()
 
-    // Récupérer le mot de passe
+    // Reset password
     passwordReset = email => this.auth.sendPasswordResetEmail(email)
 
     // firestore

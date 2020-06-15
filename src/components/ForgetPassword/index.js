@@ -2,7 +2,7 @@ import React, {useState, useContext} from 'react';
 import {Link} from 'react-router-dom';
 import {FirebaseContext} from '../Firebase';
 
-const ForgetPassword = () => {
+const ForgetPassword = props => {
 
     const firebase = useContext(FirebaseContext)
 
@@ -26,7 +26,6 @@ const ForgetPassword = () => {
         .catch(() => {
             setError(error)
             setEmail('')
-
         })
 
     }
