@@ -19,7 +19,7 @@ const ForgetPassword = props => {
             setEmail('')
 
             setTimeout(() => {
-                this.props.history.push("/login")
+                props.history.push("/login")
             }, 5000)
 
         })
