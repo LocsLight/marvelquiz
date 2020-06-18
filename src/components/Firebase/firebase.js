@@ -31,7 +31,8 @@ class Firebase {
     signoutUser = () => this.auth.signOut()
 
     // Reset password
-    passwordReset = email => this.auth.sendPasswordResetEmail(email)
+    passwordReset = email => 
+    this.auth.sendPasswordResetEmail(email)
 
     // firestore
     user = uid => this.db.doc(`users/${uid}`);
